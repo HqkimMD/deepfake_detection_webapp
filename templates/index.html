@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Deepfake Detection</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet" />
+    <!-- Bootstrap core CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet" />
+    <!-- Additional CSS Files -->
+    <link rel="stylesheet" href="/static/assets/css/animate.css" />
+    <link rel="stylesheet" href="/static/css/main.css" />
+    <link rel="stylesheet" href="/static/assets/css/fontawesome.css" />
+    <link rel="stylesheet" href="/static/assets/css/templatemo-cyborg-gaming.css\" />
+    <link rel="stylesheet" href="/static/assets/css/owl.css" />
+    <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
+    <!--
+    TemplateMo 579 Cyborg Gaming
+    https://templatemo.com/tm-579-cyborg-gaming
+    -->
+    <style>
+        #loading-animation {
+            display: none;
+            text-align: center;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- ***** Preloader Start ***** -->
+    <!-- <div id="js-preloader" class="js-preloader">
+        <div class="preloader-inner">
+            <span class="dot"></span>
+            <div class="dots">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </div> -->
+    <!-- ***** Preloader End ***** -->
+
+    <!-- ***** Header Area Start ***** -->
+    <!-- <header class="header-area header-sticky">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <nav class="main-nav">
+                        <a href="/templates/index.html" class="logo">
+                            <img src="/static/assets/images/logo.png" alt="" />
+                            <ul class="nav" style="width: 1%;">
+                                <li id="print-pdf-button">Print to PDF</a></li>
+                            </ul>
+                        </a>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header> -->
+    <!-- ***** Header Area End ***** -->
+
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="page-content"  style="padding: 0%;">
+                    <!-- ***** Banner Start ***** -->
+                    <div class="main-banner" style="padding: 0%;">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="header-text">
+                                    <br/>
+                                    <h4 style="text-align: center;"><em>DEEPFAKE DETECTION</em></h4>
+                                </div>
+                                <br/>
+                                <div class="feature-banner header-text">
+                                    <div class="row">
+                                        <div class="col-lg-4">
+                                            <div class="header-text" style="text-align: center; font-size: larger;">
+                                                <h4><em>Detect</em><br>a Video <br>That You <br>Suspect <br>Has <br>Deepfake</h4>
+                                                <!-- <div class="main-button">
+                                                    <input type="file" id="video-input" accept="video/*" required/>
+                                                </div>
+                                                <br />
+                                                <div class="main-button">
+                                                    <button id="upload-button">Upload Video</button>
+                                                </div>
+                                                <br />
+                                                <div class="main-button">
+                                                    <button id="print-pdf-button">Print to PDF</button>
+                                                </div> -->
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-8">
+                                            <div class="dp_vdo">
+                                                <video id="video-player" controls style="height: 350px; width: 630px; align-content: center;"></video>
+                                            </div>
+                                            <br/>  
+                                            <div class="row">
+                                                <div class="col-lg-6">
+                                                    <div class="main-button">
+                                                        <input type="file" id="video-input" accept="video/*" required/>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lgfa-rotate-180">
+                                                    <div class="main-button">
+                                                        <a id="upload-button" class="bt">Upload Video</a>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-1">
+                                                    <div class="main-button">
+                                                        <a id="print-pdf-button" class="bt">Print to PDF</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <br/>  
+                                            <div class="col-lg-6">
+                                                <!-- <div class="header-text" id="prediction-result">
+                                                    <p style="color: aliceblue;">File name: <span id="filename"></p>
+                                                </div> -->
+                                            </div>
+                                            <div class="col-lg-6">
+                                                <div class="header-text" id="prediction-result">
+                                                    <h6 style="color: aliceblue;">Prediction  : <span id="prediction"></h6>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-6">
+                                                <div class="header-text">
+                                                    <h6 style="color: aliceblue;">Confidence  : <span id="confidence"></h6>
+                                                </div>
+                                            </div>
+                                            <!-- <div class="col-lg-7">
+                                                <div id="loading-animation">
+                                                    <img src="/static/assets/images/giphy (1).gif" alt="Loading" style="height: 50px; width: 50px;" />
+                                                    <p>Loading...</p>
+                                                </div>
+                                            </div> -->
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- ***** Banner End ***** -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="page-content">
+                    <div class="main-banner" style="padding: 5%;">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="feature-banner header-text">
+                                    <div class="row">
+                                        <div class="col-lg-6">
+                                            <div class="header-text" id="prediction-result">
+                                                <p style="color: aliceblue;">Prediction: <span id="prediction"></p>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <div class="header-text">
+                                                <p style="color: aliceblue;">Confidence: <span id="confidence"></p>
+                                            </div>
+                                        </div>
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> -->
+
+    <!-- <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <p>
+                        Copyright © 2036 <a href="#">Cyborg Gaming</a> Company. All rights
+                        reserved.
+
+                        <br />Design:
+                        <a href="https://templatemo.com" target="_blank" title="free CSS templates">TemplateMo</a>
+                        Distributed By
+                        <a href="https://themewagon.com" target="_blank">ThemeWagon</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer> -->
+
+    <!-- Scripts -->
+    <!-- Bootstrap core JavaScript -->
+    <script src="/static/vendor/jquery/jquery.min.js"></script>
+    <script src="/static/vendor/bootstrap/js/bootstrap.min.js"></script>
+
+    <script src="/static/assets/js/isotope.min.js"></script>
+    <script src="/static/assets/js/owl-carousel.js"></script>
+    <script src="/static/assets/js/tabs.js"></script>
+    <script src="/static/assets/js/popup.js"></script>
+    <script src="/static/assets/js/custom.js"></script>
+
+    <!-- <input type="file" id="video-input" accept="video/*" />
+    <video id="video-player" controls></video>
+    <button id="upload-button">Upload Video</button>
+
+    <p id="prediction-result">Prediction: <span id="prediction"></span>, Confidence: <span id="confidence"></span></p> -->
+
+
+    <script>
+        $(document).ready(function () {
+            // Event listener for file input change
+            $('#video-input').change(function () {
+                var file = this.files[0];
+                var videoURL = URL.createObjectURL(file);
+
+                // Display video in the video player
+                $('#video-player').attr('src', videoURL);
+            });
+
+            // Event listener for upload button click
+            $('#upload-button').click(function () {
+                var file = $('#video-input').prop('files')[0];
+
+                // Check file extension
+                if (file.type !== 'video/mp4') {
+                    alert('Only MP4 files are allowed.');
+                    return;
+                }
+
+                var formData = new FormData();
+                formData.append('video', file);
+
+                // Show loading animation
+                $('#loading-animation').show();
+
+                // Send AJAX request to upload the video
+                $.ajax({
+                    url: '/upload-video',
+                    type: 'POST',
+                    data: formData,
+                    processData: false,
+                    contentType: false,
+
+                    success: function (response) {
+                        // Hide loading animation
+                        $('#loading-animation').hide();
+
+                        var videoContainer = $('#video-player');
+                        videoContainer.empty();
+                        videoContainer.attr('src', response.message);
+
+                        var prediction = response.prediction === 1 ? 'FAKE' : 'REAL';
+                        var confidence = response.confidence.toFixed(2);
+                        var filename = response.filename;
+
+                        $('#prediction').text(prediction);
+                        $('#confidence').text(confidence + '%');
+                        $('#filename').text(filename);
+                    },
+
+                    error: function (error) {
+                        // Hide loading animation
+                        $('#loading-animation').hide();
+
+                        console.error('Error uploading video:', error);
+                    }
+                });
+
+            });
+
+            // Event listener for print to PDF button click
+            $('#print-pdf-button').click(function () {
+                window.print();
+            });
+
+        });
+    </script>
+</body>
+
+</html>
